@@ -27,8 +27,9 @@ public class Project implements Serializable{
 	@Id
 	private int id;
 	private String name;
+	private String login;
 	private String avatar_url;
 	private String description;
 	private String html_url;
-	private String language;	
+	private String language;
 }

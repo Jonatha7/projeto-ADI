@@ -35,8 +35,9 @@ public class ProjectController {
 	
 	@PostMapping("**/results")
 	public ModelAndView results(@RequestParam("search") String text) throws Exception {
-		Project[] projects = new Project[20];
+		Project[] projects = new Project[21];
 		ModelAndView mv= new ModelAndView("results");
+		//mv.addObject("topic", text);
 		mv.addObject("projects", search.doGet(projects, text));
 		return mv;
 	}

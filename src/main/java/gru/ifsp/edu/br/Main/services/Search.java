@@ -16,7 +16,7 @@ public class Search {
 	
 	public Project[] doGet(Project[] projects, String text) throws Exception {
 		String txt = "", response = "";
-		String baseUrl = "https://api.github.com/search/repositories?q=" + text + "&per_page=20&sort:star"; 
+		String baseUrl = "https://api.github.com/search/repositories?q=" + text + "&per_page=21&sort:star"; 
 		try {
 			URL url = new URL(baseUrl);
 		    HttpURLConnection connection = (HttpURLConnection) url.openConnection();

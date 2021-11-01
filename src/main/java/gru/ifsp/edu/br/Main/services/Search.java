@@ -1,4 +1,4 @@
-package gru.ifsp.edu.br.Main;
+package gru.ifsp.edu.br.Main.services;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,6 +8,8 @@ import java.net.URL;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
+
+import gru.ifsp.edu.br.Main.models.Project;
 
 
 @Service

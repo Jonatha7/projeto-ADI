@@ -1,4 +1,4 @@
-package gru.ifsp.edu.br.Main;
+package gru.ifsp.edu.br.Main.models;
 
 import java.io.Serializable;
 

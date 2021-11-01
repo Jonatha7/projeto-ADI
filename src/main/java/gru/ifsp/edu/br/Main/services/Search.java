@@ -1,5 +1,7 @@
 package gru.ifsp.edu.br.Main.services;
 
+import gru.ifsp.edu.br.Main.models.Project;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -9,15 +11,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import gru.ifsp.edu.br.Main.models.Project;
-
-
 @Service
 public class Search {
 	
 	public Project[] doGet(Project[] projects, String text) throws Exception {
 		String txt = "", response = "";
-		String baseUrl = "https://api.github.com/search/repositories?q=" + text + "&per_page=3&sort:star"; 
+		String baseUrl = "https://api.github.com/search/repositories?q=" + text + "&per_page=20&sort:star"; 
 		try {
 			URL url = new URL(baseUrl);
 		    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -42,9 +41,17 @@ public class Search {
 			projects[i].setId(items.getInt("id"));
 			projects[i].setName(items.getString("name"));
 			projects[i].setAvatar_url(arrAvatar.getString("avatar_url"));
-			projects[i].setDescription(items.getString("description"));
 			projects[i].setHtml_url(items.getString("html_url"));
-			projects[i].setLanguage(items.getString("language"));
+			
+			if (items.get("description").toString().equals("null"))
+				projects[i].setDescription("null");
+			else
+				projects[i].setDescription(items.getString("description"));
+			if (items.get("language").toString().equals("null"))
+				projects[i].setLanguage("null");
+			else
+				projects[i].setLanguage(items.getString("language"));
+				
 		}
 		return projects;
 	}

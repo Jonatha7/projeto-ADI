@@ -18,245 +18,26 @@
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <!-- Nossos arquivos -->
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <script src="js/results.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script src="../js/results.js" defer></script>
 </head>
 
 <body>
     <h1 class="title">Repositórios GitHub - <!-- NOME DO TEMA BUSCADO --></h1>
     <main class="row">
         <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
+            <div class="card" th:each="project : ${projects}">
+                <div class="card-header" th:text = "${project.name}">Name</div>
                 <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam metus
-                        tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                        dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus tellus.
-                        Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus. Vestibulum
-                        ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames ac ante
-                        ipsum primis in faucibus. Nam id auctor odio.
-                    </p>
+                	<img class="card-img-top" th:src="${project.avatar_url}" th:alt="${project.description}">
+                    <h5 class="card-title" th:text = "${project.name}">Name</h5>
+                    <p class="card-text" th:text = "${project.description}">Description</p>
+                    <p class="card-text" th:text = "${project.language}">Language</p>
                     <div class="btns-container">
                         <!-- URL do repositório no href -->
                         <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
                         
                         <a title="Favoritar repositório" class="btn favorite-btn" data-rep="1" data-fav="1"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Repeti os cards pra ter uma noção do design -->
-        <!-- Mas os cards devem ser gerados por iteração -->
-
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam metus
-                        tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                        dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus tellus.
-                        Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus. Vestibulum
-                        ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames ac ante
-                        ipsum primis in faucibus. Nam id auctor odio.
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="1" data-fav="1"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt.
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="2" data-fav="0"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam metus
-                        tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                        dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus tellus.
-                        Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus. Vestibulum
-                        ornare dolor vitae dolor tempor, quis iaculis ante aliquam.
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="3" data-fav="0"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam metus
-                        tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                        dignissim. Vivamus laoreet ornare nunc ut porta. 
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="4" data-fav="1"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam metus
-                        tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                        dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus tellus.
-                        Curabitur aliquet molestie eleifend.
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="5" data-fav="1"> 
-                        <!-- 
-                            data-rep: 
-                                id do repositório
-                                deve ser recuperado do banco ou gerado pelo índice de um laço for
-
-                            data-fav:
-                                1 para favorito; 0 para não favorito
-                                deve ser recuperado do banco
-                        -->
-                            <i class="fas fa-heart text-danger"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col-md-4 p-3">
-            <div class="card">
-                <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                <div class="card-body">
-                    <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                    <p class="card-text">
-                        Descrição:
-                        <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi lacus.
-                        Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget ultricies
-                        diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos.
-                    </p>
-                    <div class="btns-container">
-                        <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-                        
-                        <a title="Favoritar repositório" class="btn favorite-btn" data-rep="6" data-fav="0"> 
                         <!-- 
                             data-rep: 
                                 id do repositório
@@ -274,5 +55,4 @@
         </div>
     </main>
 </body>
-
 </html>

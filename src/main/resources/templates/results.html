@@ -18,8 +18,12 @@
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <!-- Nossos arquivos -->
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <script src="../js/results.js" defer></script>
+    <!-- 
+	    <link rel="stylesheet" type="text/css" href="../css/common.css">
+	    <script src="../js/results.js" defer></script>
+     -->
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <script src="results.js" defer></script>
 </head>
 
 <body>
@@ -27,15 +31,14 @@
     <main class="row">
         <div class="card-container col-md-4 p-3">
             <div class="card" th:each="project : ${projects}">
-                <div class="card-header" th:text = "${project.name}">Name</div>
                 <div class="card-body">
                 	<img class="card-img-top" th:src="${project.avatar_url}" th:alt="${project.description}">
-                    <h5 class="card-title" th:text = "${project.name}">Name</h5>
-                    <p class="card-text" th:text = "${project.description}">Description</p>
-                    <p class="card-text" th:text = "${project.language}">Language</p>
+                    <h5 class="card-title" th:text="${project.name}">Name</h5>
+                    <p class="card-text" th:text="${project.description}">Description</p>
+                    <p class="card-text" th:text="${project.language}">Language</p>
                     <div class="btns-container">
                         <!-- URL do repositório no href -->
-                        <a title="Ir para o repositório" href="" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
+                        <a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
                         
                         <a title="Favoritar repositório" class="btn favorite-btn" data-rep="1" data-fav="1"> 
                         <!-- 

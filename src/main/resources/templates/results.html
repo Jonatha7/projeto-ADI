@@ -16,9 +16,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js" defer></script>
     <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script> -->
+    <script src="../js/jquery-3.6.0.js" defer></script>
     <!-- Nossos arquivos -->
-    
     <link rel="stylesheet" type="text/css" href="../css/common.css">
    	<script src="../js/results.js" defer></script>
     
@@ -33,33 +33,26 @@
     	<h1 class="title position-absolute" style="left:50%;transform:translateX(-50%);" th:text="'Repositórios GitHub - ' + ${topic}"> </h1>
     </header>
     <main class="row">
-        <div class="card-container col-md-4 p-3" th:each="project,iter : ${projects}">
-            <div class="card">
-                <div class="card-header" th:text="${iter.index+1} + ') Autor: ' + ${project.login}"></div>
-               	<div class="card-body">
-	                <h5 class="card-title" th:text="'Nome do projeto: ' + ${project.name}"></h5>
-	                <p class="card-text" th:text="'Descrição: ' + ${project.description}"></p>
-	                <p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
-	                <div class="btns-container">
-	                    <!-- URL do repositório no href -->
-	                    <a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
-	                    
-	                    <a title="Favoritar repositório" class="btn favorite-btn" th:attr="data-rep=${project.id}"  data-fav="0"> 
-	                    <!-- 
-	                        data-rep: 
-	                            id do repositório
-	                            deve ser recuperado do banco ou gerado pelo índice de um laço for
-	
-	                        data-fav:
-	                            1 para favorito; 0 para não favorito
-	                            deve ser recuperado do banco
-	                    -->
-	                        <i class="fas fa-heart text-danger"></i>
-	                    </a>
-                  	</div>
-                </div>
-            </div>
-        </div>
+    	<div class="card-container col-md-4 p-3" th:each="project,iter : ${projects}">
+         	<div class="card">
+           		<div class="card-header" th:text="${iter.index+1} + ') Autor: ' + ${project.login}"></div>
+           			<div class="card-body">
+             			<h5 class="card-title" th:text="'Nome do projeto: ' + ${project.name}"></h5>
+             			<p class="card-text" th:text="'Descrição: ' + ${project.description}"></p>
+             			<p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
+             			<div class="btns-container">
+		                	<div th:with="list_ids = ${favorites_ids}">
+		                		<!-- <p th:text="project.id"></p> -->
+		                    	<a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
+		                    	 <a title="Favoritar repositório" class="btn favorite-btn" th:attr="data-rep=${project.id},
+		                    	 	data-fav=${#lists.contains(list_ids, project.id) == true ? 1 : 0}">
+		                        	<i class="fas fa-heart text-danger"></i>
+		                    	 </a>
+	                  		</div>
+	                	</div>
+            		</div>
+           		</div>
+		</div>
     </main>
 </body>
 </html>

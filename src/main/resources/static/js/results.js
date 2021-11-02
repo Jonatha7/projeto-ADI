@@ -14,7 +14,7 @@ favoriteBtns.forEach(btn => {
     })
 
     btn.addEventListener('click', e => {
-        let favBtn = e.target
+		let favBtn = e.target
         let {rep} = favBtn.dataset
         let fav = parseInt(favBtn.dataset.fav)
 
@@ -29,7 +29,7 @@ favoriteBtns.forEach(btn => {
         }
             
         $.ajax({
-            url: '', //definir URL do método
+            url: 'http://localhost:8088/project/save', //definir URL do método
             data: {
                 id: rep, //id do repositório
                 favorite: fav //boolean para saber se foi favoritado (1) ou desfavoritado (0)

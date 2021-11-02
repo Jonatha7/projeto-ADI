@@ -36,293 +36,37 @@
                     <button type="submit" class="btn btn-outline-light bg-success">Pesquisar</button>
                 </div>
             </form>
-        </section>
+        </section> 
         <section class="col-md-12 d-flex flex-column align-items-center mt-5 mb-5">
             <h4>Seus repositórios favoritos</h4>
-            <div class="cards row">
-                <!-- UTILIZAR LAÇO FOR PARA GERAR OS CONTAINERS -->
-                <!--
-                    UTILIZAR UM ÍNDICE PARA FAZER A PAGINAÇÃO;
-                    INSERIR ÍNDICE EM data-group DE 3 EM 3 ITENS
-                    FAÇA UMA CONTAGEM:
-
-                    count = 1
-                    if( (i+1)%3 == 0 ){
-                        count++
-                    }
-
-                    data-group DEVE RECEBER count PARA CADA CONTAINER GERADO NO LAÇO FOR
-                -->
-                <div data-group="1" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repeti os cards pra ter uma noção do design -->
-                <!-- Mas os cards devem ser gerados por iteração -->
-
-                <div data-group="1" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-group="1" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-group="2" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-group="2" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-group="2" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-group="3" class="card-container col-md-4 p-3">
-                    <div class="card">
-                        <div class="card-header">Autor: [NOME DO USUÁRIO]</div>
-                        <div class="card-body">
-                            <h5 class="card-title">[NOME DO REPOSITÓRIO]</h5>
-                            <p class="card-text">
-                                Descrição:
-                                <!-- [README] --> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nisi
-                                lacus.
-                                Praesent ultrices enim in egestas tincidunt. Praesent efficitur condimentum enim, eget
-                                ultricies
-                                diam interdum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                                per
-                                inceptos himenaeos. Cras nec euismod neque. In hac habitasse platea dictumst. Aliquam
-                                metus
-                                tortor, efficitur et nisl vitae, semper pellentesque neque. Aenean imperdiet et erat ac
-                                dignissim. Vivamus laoreet ornare nunc ut porta. Nunc ut molestie orci, nec maximus
-                                tellus.
-                                Curabitur aliquet molestie eleifend. Etiam porta lacus ac metus cursus finibus.
-                                Vestibulum
-                                ornare dolor vitae dolor tempor, quis iaculis ante aliquam. Interdum et malesuada fames
-                                ac
-                                ante
-                                ipsum primis in faucibus. Nam id auctor odio.
-                            </p>
-                            <div class="btns-container">
-                                <!-- URL do REPOSITÓRIO no href -->
-                                <a title="Ir para o REPOSITÓRIO" href="" class="btn" target="_blank"><i
-                                        class="fas fa-external-link-alt text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 
-                seja n a quantidade de favoritos;
-                seja p o número de póginas;
-                p = n/3
-                p deve ser arredondado para cima.
-                Ou seja, 3.2 deve ser 4.
-                Por exemplo, 10 itens favoritos devem resultar em 4 póginas
-                pois cada pógina tem 3 itens.
-                10/3 = 3.33, que deve ser arredondado para 4.
-                No JS eu uso Math.ceil(valor) para isso. Deve haver equivalente em Java.
-            -->
+             <div th:with="i=1">
+	             <div class="cards row">
+	                <div th:attr="data-group=${i}" class="card-container col-md-4 p-3" th:each="project,iter : ${projects}">
+	                	<div class="card">
+	                		<div class="card-header" th:text="${iter.index+1} + ') Autor: ' + ${project.login}"></div>
+	               				<div class="card-body">
+					                <h5 class="card-title" th:text="'Nome do projeto: ' + ${project.name}"></h5>
+					                <p class="card-text" th:text="'Descrição: ' + ${project.description}"></p>
+					                <p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
+		                			<div class="btns-container">
+				                    	<!-- URL do repositório no href -->
+				                    	<a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
+	               					</div>
+	               				</div>
+	        			 </div>
+        				<div th:if="(${iter.index} + 1) % 3 == 0">
+	           				<div th:with="${i} = ${i} + 1"></div>
+	           			</div>
+	           		</div> 
+	           	</div>
+           	</div>   
+            
             <nav>
                 <ul class="pagination">
                     <li class="page-item disabled">
                         <a id="prev" class="page-link d-flex align-items-center justify-content-center"><i
                                 class="fas fa-chevron-left"></i></a>
                     </li>
-                    <!-- AQUI DEVE SER FEITO UM LAÇO FOR BASEADO NO VALOR DE P -->
-                    <!-- O primeiro item <li> de ter classe active, os demais são iguais -->
-                    <!-- 
-                        Portanto 
-                        if(i == 0){
-                            <li class="page-item active">
-                                ...
-                            </li>
-                        } 
-                    -->
-                    <!-- Na da tag <a>, o id e o texto devem ser i+1 -->
-                    <!-- 
-                        Portanto <a id="i+1" class="...">i+1</a>
-                    -->
-
-                    <!-- EXEMPLO DE ITENS GERADOS PELO FOR -->
-                    <!-- SE BASEIE NESSA ESTRUTURA -->
                     <li class="page-item active">
                         <a id="1" class="page-link d-flex align-items-center justify-content-center">1</a>
                     </li>
@@ -332,8 +76,6 @@
                     <li class="page-item">
                         <a id="3" class="page-link d-flex align-items-center justify-content-center">3</a>
                     </li>
-                    <!-- FIM DO LAÇO FOR -->
-
                     <li class="page-item">
                         <a id="next" class="page-link d-flex align-items-center justify-content-center"><i
                                 class="fas fa-chevron-right"></i></a>
@@ -365,5 +107,4 @@
         width: 50vw;
     }
 </style>
-
 </html>

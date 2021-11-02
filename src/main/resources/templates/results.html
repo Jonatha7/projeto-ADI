@@ -30,19 +30,16 @@
 		<button class="btn position-relative" style="box-shadow:none;justify-self:flex-start;top:22px;left:15px;" id="back" onClick="history.go(-1)">
 			<i class="fas fa-arrow-circle-left fa-4x"></i>
 		</button>
-    	<h1 class="title position-absolute" style="left:50%;transform:translateX(-50%);">Repositórios GitHub - </h1>
+    	<h1 class="title position-absolute" style="left:50%;transform:translateX(-50%);" th:text="'Repositórios GitHub - ' + ${topic}"> </h1>
     </header>
     <main class="row">
         <div class="card-container col-md-4 p-3" th:each="project,iter : ${projects}">
             <div class="card">
-                <div class="card-header" th:text="${project.login}">Owner</div>
+                <div class="card-header" th:text="${iter.index+1} + ') Autor: ' + ${project.login}"></div>
                	<div class="card-body">
-               		<!-- 
-               			<img class="card-img-top w-50 m-3" th:src="${project.avatar_url}" th:alt="${project.description}">
-               		 -->
-	                <h5 class="card-title" th:text="${project.name}">Name</h5>
-	                <p class="card-text" th:text="${project.description}">Description</p>
-	                <p class="card-text" th:text="${project.language}">Language</p>
+	                <h5 class="card-title" th:text="'Nome do projeto: ' + ${project.name}"></h5>
+	                <p class="card-text" th:text="'Descrição: ' + ${project.description}"></p>
+	                <p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
 	                <div class="btns-container">
 	                    <!-- URL do repositório no href -->
 	                    <a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>

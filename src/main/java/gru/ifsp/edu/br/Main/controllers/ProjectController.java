@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import gru.ifsp.edu.br.Main.models.Project;
 import gru.ifsp.edu.br.Main.repository.ProjectRepository;
 import gru.ifsp.edu.br.Main.services.Search;
+import gru.ifsp.edu.br.Main.utils.Counter;
 
 @Controller
 @RequestMapping("project")
@@ -31,6 +32,7 @@ public class ProjectController {
 	@GetMapping("/home")
 	public ModelAndView home() {
 		ModelAndView mv= new ModelAndView("index");
+		mv.addObject("counter", new Counter());
 		mv.addObject("projects", repository.findAll());
 		return mv;
 	}

@@ -96,7 +96,7 @@ const languages = [
 
 //demonstração do tipo de array esperado para o gráfico
 //apagar após substituir pelo array do ajax
-const  favoriteLanguages = [
+let favoriteLanguages = [
     {name: 'JavaScript', quantity: 10},
     {name: 'PHP', quantity: 6},
     {name: 'C', quantity: 3},
@@ -109,15 +109,19 @@ const  favoriteLanguages = [
 //////////////////////////////////////////
 
 //descomentar quando houver método de retorno as linguagens favoritas
-/* $.ajax({
-    url: '', //método que irá retornar os objetos de linguagens favoritas
+/*
+ $.ajax({
+    url: 'http://localhost:8088/project/home/chart', //método que irá retornar os objetos de linguagens favoritas
     data: {},
     type: 'GET'
 }).done(data => {
     //coverter para objeto js
-    favoriteLanguages = JSON.parse(data)
+ 	favoriteLanguages = data.map(item => {
+		return JSON.parse(item)
+	})
     //INSERIR AQUI TODO O CÓDIGO QUE ESTÁ ABAIXO
-}) */
+})
+*/
 
 favoriteLanguages.forEach(favorite => {
     languages.forEach(language => {

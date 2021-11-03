@@ -42,7 +42,6 @@
              			<p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
              			<div class="btns-container">
 		                	<div th:with="list_ids = ${favorites_ids}">
-		                		<!-- <p th:text="project.id"></p> -->
 		                    	<a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
 		                    	 <a title="Favoritar repositório" class="btn favorite-btn" th:attr="data-rep=${project.id},
 		                    	 	data-fav=${#lists.contains(list_ids, project.id) == true ? 1 : 0}">

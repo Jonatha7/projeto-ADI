@@ -41,7 +41,6 @@ public class Search {
 			projects[i].setId(items.getInt("id"));
 			projects[i].setName(items.getString("name"));
 			projects[i].setLogin(arrAvatar.getString("login"));
-			projects[i].setAvatar_url(arrAvatar.getString("avatar_url"));
 			projects[i].setHtml_url(items.getString("html_url"));
 			
 			if (items.get("description").toString().equals("null"))

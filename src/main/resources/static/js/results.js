@@ -27,14 +27,25 @@ favoriteBtns.forEach(btn => {
             icon.classList.remove('far')
             favBtn.dataset.fav =  '1'
         }
-            
-        $.ajax({
-            url: 'http://localhost:8088/project/save', //definir URL do método
-            data: {
-                id: rep, //id do repositório
-                favorite: fav //boolean para saber se foi favoritado (1) ou desfavoritado (0)
-            },
-            type: 'POST'
-        })
+		
+		console.log(fav)
+
+		if(fav) {
+			$.ajax({
+	            url: 'http://localhost:8088/project/delete/' + rep,  //definir URL do método
+				data: {},
+	            type: 'DELETE'
+        	})
+			
+		} else {
+			$.ajax({
+	            url: 'http://localhost:8088/project/save', //definir URL do método
+	            data: {
+	                id: rep, //id do repositório
+	                favorite: fav //boolean para saber se foi favoritado (1) ou desfavoritado (0)
+	            },
+	            type: 'POST'
+        	})
+		}
     })
 })

@@ -96,7 +96,7 @@ const languages = [
 
 //demonstração do tipo de array esperado para o gráfico
 //apagar após substituir pelo array do ajax
-let favoriteLanguages = [
+const favoriteLanguages = [
     {name: 'JavaScript', quantity: 10},
     {name: 'PHP', quantity: 6},
     {name: 'C', quantity: 3},

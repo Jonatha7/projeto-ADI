@@ -12,5 +12,8 @@ public interface ProjectRepository extends JpaRepository <Project, Integer>{
 	@Query("SELECT p.id FROM Project p")
 	List<Integer> findAllIdsProject();
 	
-	//languagesChart
+	/*
+	@Query("SELECT p.language, count(language) as qtde FROM Project p GROUP BY p.language")
+	Map<String,Integer> languagesChart();
+	*/
 }

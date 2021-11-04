@@ -58,4 +58,9 @@ public class ProjectController {
 		ModelAndView mv= new ModelAndView("results");
 		return mv;
 	}
+	
+	@GetMapping("/chart")
+	public void debug() {
+	}
+	
 }

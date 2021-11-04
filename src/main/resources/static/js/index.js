@@ -116,7 +116,7 @@ const favoriteLanguages = [
     type: 'GET'
 }).done(data => {
     //coverter para objeto js
- 	favoriteLanguages = data.map(item => {
+ 	const favoriteLanguages = data.map(item => {
 		return JSON.parse(item)
 	})
     //INSERIR AQUI TODO O CÓDIGO QUE ESTÁ ABAIXO

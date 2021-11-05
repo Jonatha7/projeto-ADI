@@ -10,7 +10,7 @@ favoriteBtns.forEach(btn => {
 
     icon.addEventListener('click', e => {
         e.stopPropagation()
-        btn.click()
+        btn.click()	
     })
 
     btn.addEventListener('click', e => {
@@ -28,22 +28,26 @@ favoriteBtns.forEach(btn => {
             favBtn.dataset.fav =  '1'
         }
 		
-		console.log(fav)
-
 		if(fav) {
 			$.ajax({
-	            url: 'http://localhost:8088/project/delete/' + rep,  //definir URL do método
+	            url: 'http://localhost:8088/project/delete/' + rep,
 				data: {},
 	            type: 'DELETE'
         	})
 			
 		} else {
+			let json = document.getElementById(rep).value
+			console.log(json)
+//			let data = JSON.parse(json.replaceAll('\'', '\"'))
+			let data = JSON.stringify(json)
+			console.log(data)
 			$.ajax({
-	            url: 'http://localhost:8088/project/save', //definir URL do método
-	            data: {
-	                id: rep, //id do repositório
-	                favorite: fav //boolean para saber se foi favoritado (1) ou desfavoritado (0)
-	            },
+	            url: 'http://localhost:8088/project/save',
+				data: data,
+				headers: {
+					'Accept': 'application/json',
+        			'Content-Type': 'application/json; charset=utf-8'
+    			},
 	            type: 'POST'
         	})
 		}

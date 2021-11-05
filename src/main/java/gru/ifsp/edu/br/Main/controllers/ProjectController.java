@@ -59,8 +59,11 @@ public class ProjectController {
 		return mv;
 	}
 	
-	@GetMapping("/chart")
-	public void debug() {
-	}
-	
+	/*
+		@GetMapping("/language")
+		public Map<String,Integer> language() {
+			language = repository.metodo
+			return language
+		}
+	*/
 }

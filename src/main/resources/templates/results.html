@@ -40,6 +40,17 @@
              			<h5 class="card-title" th:text="'Nome do projeto: ' + ${project.name}"></h5>
              			<p class="card-text" th:text="'Descrição: ' + ${project.description}"></p>
              			<p class="card-text" th:text="'Desenvolvido em: ' + ${project.language}"></p>
+             			<input hidden 
+             				th:attr="value=${
+             					'{' + '''id''' + ':' +  project.id  + ',' +
+             					  '''name''' + ':' + '''' + project.name + '''' + ',' +
+             					  '''login''' + ':' + '''' + project.login + '''' + ',' +
+             					  '''description''' + ':' + '''' + project.description + '''' + ',' +
+             					  '''html_url''' + ':' + '''' + project.html_url + '''' + ',' +
+             					  '''language''' + ':' + '''' + project.language + '''' +
+             					'}' 
+             				},id=${project.id}"/>
+             				
              			<div class="btns-container">
 		                	<div th:with="list_ids = ${favorites_ids}">
 		                    	<a title="Ir para o repositório" th:href="${project.html_url}" class="btn" target="_blank"><i class="fas fa-external-link-alt text-primary"></i></a>
@@ -50,7 +61,7 @@
 	                  		</div>
 	                	</div>
             		</div>
-           		</div>
+           	</div>
 		</div>
     </main>
 </body>

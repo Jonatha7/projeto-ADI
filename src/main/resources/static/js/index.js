@@ -96,6 +96,7 @@ const languages = [
 
 //demonstração do tipo de array esperado para o gráfico
 //apagar após substituir pelo array do ajax
+/*
 const favoriteLanguages = [
     {name: 'JavaScript', quantity: 10},
     {name: 'PHP', quantity: 6},
@@ -106,12 +107,12 @@ const favoriteLanguages = [
     {name: 'Assembly', quantity: 5},
     {name: 'Cobol', quantity: 2}
 ]
+*/
 //////////////////////////////////////////
 
 //descomentar quando houver método de retorno as linguagens favoritas
-/*
  $.ajax({
-    url: 'http://localhost:8088/project/home/chart', //método que irá retornar os objetos de linguagens favoritas
+    url: 'localhost:8088/json/language', //método que irá retornar os objetos de linguagens favoritas
     data: {},
     type: 'GET'
 }).done(data => {
@@ -120,9 +121,57 @@ const favoriteLanguages = [
 		return JSON.parse(item)
 	})
     //INSERIR AQUI TODO O CÓDIGO QUE ESTÁ ABAIXO
-})
-*/
+	favoriteLanguages.forEach(favorite => {
+    languages.forEach(language => {
+        if(language.name == favorite.name)
+            favorite.color = language.color
+    })
+    if(!favorite.color)
+        favorite.color = ''
+	})
 
+	const someColors = [
+	    '#853c3c',
+	    '#855e3c',
+	    '#73853c',
+	    '#48853c',
+	    '#3c8567',
+	    '#de90da'
+	]
+	let colorIndex = 0
+	
+	const favoriteNames = favoriteLanguages.map(favorite => favorite.name)
+	const favoriteQuantities = favoriteLanguages.map(favorite => favorite.quantity)
+	const favoriteColors = favoriteLanguages.map(favorite => {
+	    color = favorite.color ? favorite.color : someColors[colorIndex]
+	    if(color == someColors[colorIndex])
+	        colorIndex++
+	    return color
+	})
+	
+	const ctx = document.getElementById('languages-chart').getContext('2d')
+	const myChart = new Chart(ctx, {
+	    type: 'doughnut',
+	    data: {
+	        labels: favoriteNames,
+	        datasets: [{
+	            data: favoriteQuantities,
+	            backgroundColor: favoriteColors,
+	            borderColor: favoriteColors,
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            y: {
+	                beginAtZero: true
+	            }
+	        }
+	    }
+	})
+})
+
+/*
 favoriteLanguages.forEach(favorite => {
     languages.forEach(language => {
         if(language.name == favorite.name)
@@ -171,5 +220,5 @@ const myChart = new Chart(ctx, {
         }
     }
 })
-
+*/
 /* Chart end */

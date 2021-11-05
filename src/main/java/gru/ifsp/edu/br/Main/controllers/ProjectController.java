@@ -1,5 +1,6 @@
 package gru.ifsp.edu.br.Main.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -58,12 +59,10 @@ public class ProjectController {
 		ModelAndView mv= new ModelAndView("results");
 		return mv;
 	}
-	
 	/*
-		@GetMapping("/language")
-		public Map<String,Integer> language() {
-			language = repository.metodo
-			return language
-		}
-	*/
+	@GetMapping("/json")
+	public List<Project> language() {
+		return repository.findAll();
+	}
+	*/	
 }

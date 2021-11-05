@@ -37,9 +37,8 @@ favoriteBtns.forEach(btn => {
 			
 		} else {
 			let json = document.getElementById(rep).value
-			console.log(json)
-//			let data = JSON.parse(json.replaceAll('\'', '\"'))
-			let data = JSON.stringify(json)
+			let data = JSON.parse(json.replaceAll('\'', '\"'))
+			data = JSON.stringify(data)
 			console.log(data)
 			$.ajax({
 	            url: 'http://localhost:8088/project/save',

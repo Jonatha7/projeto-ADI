@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,6 +22,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Entity
 @Table(name="project")
+@JsonDeserialize(as = Project.class)
 public class Project implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

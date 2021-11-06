@@ -5,7 +5,7 @@ const cardContainers = Array.from(document.querySelectorAll(".card-container"))
 cardContainers.forEach(container => {
     let group = parseInt(container.dataset.group)
     if(group == 1)
-        container.style.display = 'block'
+        container.style.display = 'flex'
     else
         container.style.display = 'none'
 })
@@ -69,7 +69,7 @@ pageItems.forEach(item => {
             cardContainers.forEach(container => {
                 let group = parseInt(container.dataset.group)
                 if(group == index)
-                    container.style.display = 'block'
+                    container.style.display = 'flex'
                 else
                     container.style.display = 'none'
             })
@@ -93,32 +93,12 @@ const languages = [
     {name: 'Swift', color: '#d66f38'},
     {name: 'R', color: '#efff45'},
 ]
-
-//demonstração do tipo de array esperado para o gráfico
-//apagar após substituir pelo array do ajax
-/*
-const favoriteLanguages = [
-    {name: 'JavaScript', quantity: 10},
-    {name: 'PHP', quantity: 6},
-    {name: 'C', quantity: 3},
-    {name: 'Python', quantity: 5},
-    {name: 'Java', quantity: 1},
-    {name: 'Go', quantity: 2},
-    {name: 'Assembly', quantity: 5},
-    {name: 'Cobol', quantity: 2}
-]
-*/
-
-//////////////////////////////////////////
-
-//descomentar quando houver método de retorno as linguagens favoritas
-
 $.ajax({
 	url: 'http://localhost:8088/json/language', //método que irá retornar os objetos de linguagens favoritas
 	crossDomain: true,
 	data: {},
 	dataType: 'json',
-	/*
+	/* CORS
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json; charset=utf-8',
@@ -169,65 +149,6 @@ $.ajax({
 	            borderColor: favoriteColors,
 	            borderWidth: 1
 	        }]
-	    },
-	    options: {
-	        scales: {
-	            y: {
-	                beginAtZero: true
-	            }
-	        }
 	    }
 	})
 })
-
-/*
-favoriteLanguages.forEach(favorite => {
-    languages.forEach(language => {
-        if(language.name == favorite.name)
-            favorite.color = language.color
-    })
-    if(!favorite.color)
-        favorite.color = ''
-})
-
-const someColors = [
-    '#853c3c',
-    '#855e3c',
-    '#73853c',
-    '#48853c',
-    '#3c8567',
-    '#de90da'
-]
-let colorIndex = 0
-
-const favoriteNames = favoriteLanguages.map(favorite => favorite.name)
-const favoriteQuantities = favoriteLanguages.map(favorite => favorite.quantity)
-const favoriteColors = favoriteLanguages.map(favorite => {
-    color = favorite.color ? favorite.color : someColors[colorIndex]
-    if(color == someColors[colorIndex])
-        colorIndex++
-    return color
-})
-
-const ctx = document.getElementById('languages-chart').getContext('2d')
-const myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: favoriteNames,
-        datasets: [{
-            data: favoriteQuantities,
-            backgroundColor: favoriteColors,
-            borderColor: favoriteColors,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-})
-*/
-/* Chart end */

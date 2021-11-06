@@ -113,10 +113,12 @@ const favoriteLanguages = [
 
 //descomentar quando houver método de retorno as linguagens favoritas
 
- $.ajax({
-    url: 'localhost:8088/json/language', //método que irá retornar os objetos de linguagens favoritas
+$.ajax({
+	url: 'http://localhost:8088/json/language', //método que irá retornar os objetos de linguagens favoritas
 	crossDomain: true,
-    data: {},
+	data: {},
+	dataType: 'json',
+	/*
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json; charset=utf-8',
@@ -125,17 +127,13 @@ const favoriteLanguages = [
 		'Access-Control-Allow-Headers': '*',
 		'Access-Control-Max-Age: 86400': '86400'
 	},
+	*/
 	type: 'GET'
 }).done(data => {
-	//coverter para objeto js
- 	const favoriteLanguages = data.map(item => {
-		return JSON.parse(item)
-	})
-    //INSERIR AQUI TODO O CÓDIGO QUE ESTÁ ABAIXO
-	favoriteLanguages.forEach(favorite => {
+	data.forEach(favorite => {
     languages.forEach(language => {
-        if(language.name == favorite.name)
-            favorite.color = language.color
+        if(language.name == Object.keys(favorite)[0]) // retorna nome da linguage
+			favorite.color = language.color
     })
     if(!favorite.color)
         favorite.color = ''
@@ -151,9 +149,9 @@ const favoriteLanguages = [
 	]
 	let colorIndex = 0
 	
-	const favoriteNames = favoriteLanguages.map(favorite => favorite.name)
-	const favoriteQuantities = favoriteLanguages.map(favorite => favorite.quantity)
-	const favoriteColors = favoriteLanguages.map(favorite => {
+	const favoriteNames = data.map(favorite => Object.keys(favorite)[0])
+	const favoriteQuantities = data.map(favorite => Object.values(favorite)[0])
+	const favoriteColors = data.map(favorite => {
 	    color = favorite.color ? favorite.color : someColors[colorIndex]
 	    if(color == someColors[colorIndex])
 	        colorIndex++
@@ -181,7 +179,6 @@ const favoriteLanguages = [
 	    }
 	})
 })
-
 
 /*
 favoriteLanguages.forEach(favorite => {

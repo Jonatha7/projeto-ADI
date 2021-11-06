@@ -108,15 +108,26 @@ const favoriteLanguages = [
     {name: 'Cobol', quantity: 2}
 ]
 */
+
 //////////////////////////////////////////
 
 //descomentar quando houver método de retorno as linguagens favoritas
+
  $.ajax({
     url: 'localhost:8088/json/language', //método que irá retornar os objetos de linguagens favoritas
+	crossDomain: true,
     data: {},
-    type: 'GET'
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json; charset=utf-8',
+		'Access-Control-Allow-Origin': 'http://localhost',
+		'Access-Control-Allow-Methods': 'GET',
+		'Access-Control-Allow-Headers': '*',
+		'Access-Control-Max-Age: 86400': '86400'
+	},
+	type: 'GET'
 }).done(data => {
-    //coverter para objeto js
+	//coverter para objeto js
  	const favoriteLanguages = data.map(item => {
 		return JSON.parse(item)
 	})
@@ -170,6 +181,7 @@ const favoriteLanguages = [
 	    }
 	})
 })
+
 
 /*
 favoriteLanguages.forEach(favorite => {

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gru.ifsp.edu.br.Main.repository.ProjectRepository;
 
@@ -25,7 +24,7 @@ public class LanguageController {
 		this.repository = repository;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8088")
+	@CrossOrigin(origins = "http://localhost:8088/project/home")
 	@GetMapping("/language")
 	public List<Map<String, Integer>> language() throws JsonProcessingException {
 		List<String> languages = repository.languagesChart();
